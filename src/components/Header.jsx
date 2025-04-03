@@ -1,11 +1,12 @@
 import React from "react";
-
+import Searchbar from "./Searchbar";
+import { Link } from "react-router";
 function Header() {
   return (
     <nav>
       <ul>
         <li>
-          <strong> Header </strong>
+          <strong className="bg-blue-500"> Header </strong>
         </li>
       </ul>
       <ul>
@@ -20,7 +21,7 @@ function Header() {
             <summary>Account </summary>
             <ul dir="rtl">
               <li>
-                <a href="#">Profile</a>
+                <Link to="/"> Home </Link>
               </li>
               <li>
                 <a href="#">Settings</a>
@@ -31,6 +32,9 @@ function Header() {
             </ul>
           </details>
         </li>
+      </ul>
+      <ul>
+        <Searchbar />
       </ul>
     </nav>
   );

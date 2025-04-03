@@ -1,31 +1,15 @@
-import React, { useState, useEffect } from "react";
-import Card from "../../components/Card";
+import React from "react";
+import useFetchSolution from "../../hook/useFetchSolution";
 import { useParams } from "react-router";
 function GamePage() {
   // 9ca1f1c570a64e2aac287f86910378f8
 
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
   const { id } = useParams();
-  const load = async () => {
-    try {
-      const response = await fetch(
-        `https://api.rawg.io/api/games/${id}?key=9ca1f1c570a64e2aac287f86910378f8`
-      );
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      const json = await response.json();
-      setData(json);
-      console.log(json);
-    } catch (error) {
-      setError(error.message);
-      setData(null);
-    }
-  };
-  useEffect(() => {
-    load();
-  }, []);
+
+  const { data, error } = useFetchSolution(
+    `https://api.rawg.io/api/games/${id}?key=9ca1f1c570a64e2aac287f86910378f8`
+  );
+
   return (
     <div>
       <h1> Game Page </h1>

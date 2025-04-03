@@ -1,29 +1,21 @@
+import React, { useEffect } from "react";
 import Card from "../../components/Card";
+
 import { useParams } from "react-router";
-import { useState, useEffect } from "react";
+import useFetchSolution from "../../hook/useFetchSolution";
 function GenrePage() {
-  // 9ca1f1c570a64e2aac287f86910378f8
-  // 'https://api.rawg.io/api/games?key=9269195f491e44539d7a2d10ce87ab15&genres=${genre}&page=1*;
+  console.log("componente GenrePage ri-renderizzato");
+
   const { genre } = useParams();
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const load = async () => {
-    try {
-      const result = await fetch(
-        `https://api.rawg.io/api/games?key=9ca1f1c570a64e2aac287f86910378f8&genres=${genre}&page=1`
-      );
-      if (!result.ok) {
-        throw new Error(result.statusText);
-      }
-      const json = await result.json();
-      setData(json);
-    } catch (error) {
-      setError(error.message);
-      setData(null);
-    }
-  };
+
+  const { data, error, setUrl } = useFetchSolution(
+    `https://api.rawg.io/api/games?key=9ca1f1c570a64e2aac287f86910378f8&genres=${genre}&page=1`
+  );
+
   useEffect(() => {
-    load();
+    setUrl(
+      `https://api.rawg.io/api/games?key=9ca1f1c570a64e2aac287f86910378f8&genres=${genre}&page=1`
+    );
   }, [genre]);
   return (
     <>

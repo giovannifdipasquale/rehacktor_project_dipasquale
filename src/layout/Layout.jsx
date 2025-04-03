@@ -6,7 +6,7 @@ import GenresDropdown from "../components/GenresDropdown";
 export default function Layout() {
   return (
     <div className="style-layout-system">
-      <nav className="style-header">Header</nav>
+      <Header />
       <GenresDropdown />
       <div className="style-main-content">
         {/* slot da riempire con la rotta annidata */}
