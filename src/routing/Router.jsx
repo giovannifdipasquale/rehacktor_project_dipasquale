@@ -5,6 +5,7 @@ import ErrorPage from "../pages/error";
 import GenrePage from "../pages/genre";
 import GamePage from "../pages/game";
 import SearchPage from "../pages/search";
+import RegisterPage from "../pages/register";
 import Layout from "../layout/Layout";
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
             <Route path="/games/:genre" element={<GenrePage />} />
             <Route path="/games/:slug/:id" element={<GamePage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/register" element={<RegisterPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
