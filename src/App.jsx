@@ -1,9 +1,11 @@
 import Router from "./routing/Router";
-
+import SessionContextProvider from "./context/SessionProvider";
 function App() {
   return (
     <>
-      <Router />
+      <SessionContextProvider>
+        <Router />
+      </SessionContextProvider>
     </>
   );
 }
