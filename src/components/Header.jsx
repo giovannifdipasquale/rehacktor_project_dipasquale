@@ -7,12 +7,12 @@ function Header() {
   const [session, setSession] = useState(null);
   const getSession = async () => {
     const { data, error } = await supabase.auth.getSession();
-    if (error) {
-      console.log(error);
-      setSession(null);
-    } else {
+    if (data) {
       setSession(data);
       console.log(data);
+    } else {
+      setSession(null);
+      console.log(error);
     }
   };
   const signOut = async () => {
@@ -32,7 +32,7 @@ function Header() {
         <ul>
           <li>
             <details className="dropdown">
-              <summary>Account loggato</summary>
+              <summary>Account pippo </summary>
               <ul dir="rtl">
                 <li>
                   <Link to="/"> Home </Link>
@@ -67,9 +67,16 @@ function Header() {
       <div className="flex ml-auto mr-auto items-center gap-4 border p-2">
         <Searchbar />
       </div>
-      <div className="flex ml-auto  items-center gap-4 border p-2">
-        <button>coa</button>
-      </div>
+      {!session ? (
+        <div className="flex ml-auto  items-center gap-4 border p-2">
+          {" "}
+          <Link to="/login" className="secondary">
+            Login
+          </Link>{" "}
+        </div>
+      ) : (
+        ""
+      )}
     </nav>
   );
 }
