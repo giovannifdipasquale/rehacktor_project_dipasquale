@@ -3,9 +3,11 @@ import Searchbar from "./Searchbar";
 import { Link, useNavigate } from "react-router";
 import supabase from "../supabase/supabase-client";
 import { useSession } from "../context/SessionContext";
+
 function Header() {
   const navigate = useNavigate();
   const { session } = useSession();
+
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
@@ -16,56 +18,71 @@ function Header() {
   };
 
   return (
-    <nav className="border m-4 p-2 flex">
-      {session ? (
-        <ul>
-          <li>
-            <details className="dropdown">
-              <summary>Account pippo </summary>
-              <ul dir="rtl">
-                <li>
-                  <Link to="/"> Home </Link>
-                </li>
+    <nav className="bg-white shadow-md px-6 py-4 flex items-center justify-between">
+      {/* Left: Logo / Home Link */}
+      <div className="flex items-center gap-4">
+        <Link
+          to="/"
+          className="text-xl font-semibold text-blue-600 hover:text-blue-800"
+        >
+          Home
+        </Link>
+      </div>
 
-                <li>
-                  <a onClick={signOut} href="#">
-                    Logout
-                  </a>
-                </li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-      ) : (
-        <ul>
-          <li>
-            <details className="dropdown">
-              <summary>Account </summary>
-              <ul dir="rtl">
-                <li>
-                  <Link to="/"> Home </Link>
-                </li>
-                <li>
-                  <Link to="/register"> Register </Link>
-                </li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-      )}
-      <div className="flex ml-auto mr-auto items-center gap-4 border p-2">
+      {/* Center: Searchbar */}
+      <div className="flex-1 flex justify-center">
         <Searchbar />
       </div>
-      {!session ? (
-        <div className="flex ml-auto  items-center gap-4 border p-2">
-          {" "}
-          <Link to="/login" className="secondary">
-            Login
-          </Link>{" "}
-        </div>
-      ) : (
-        ""
-      )}
+
+      {/* Right: Account Dropdown & Login */}
+      <div className="flex items-center bg-red-200 gap-4">
+        <ul className="flex">
+          {session ? (
+            <>
+              <li className="block px-4 py-2  hover:bg-gray-100">
+                <Link to="/account">Account</Link>
+              </li>
+
+              <li>
+                <a
+                  onClick={signOut}
+                  href="#"
+                  className="block px-4 py-2 text-red-600 hover:bg-gray-100"
+                >
+                  Logout
+                </a>
+              </li>
+            </>
+          ) : (
+            <li>
+              <Link
+                to="/register"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              >
+                Register
+              </Link>
+            </li>
+          )}
+        </ul>
+
+        {!session && (
+          <>
+            <Link
+              to="/login"
+              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+            >
+              Login
+            </Link>
+            <span> -or- </span>
+            <Link
+              to="/register"
+              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+            >
+              Register
+            </Link>
+          </>
+        )}
+      </div>
     </nav>
   );
 }

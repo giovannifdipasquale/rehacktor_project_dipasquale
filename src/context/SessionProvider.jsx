@@ -9,6 +9,7 @@ function SessionContextProvider({ children }) {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
       if (session) {
+        console.log("session is:");
         console.log(session);
         setSession(session);
       } else if (event === "SIGNED_OUT") {
