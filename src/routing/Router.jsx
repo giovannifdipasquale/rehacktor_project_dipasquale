@@ -6,6 +6,7 @@ import GenrePage from "../pages/genre";
 import GamePage from "../pages/game";
 import SearchPage from "../pages/search";
 import AccountPage from "../pages/account";
+import ProfilePage from "../pages/profile";
 import RegisterPage from "../pages/register";
 import LoginPage from "../pages/login";
 import Layout from "../layout/Layout";
@@ -23,6 +24,7 @@ function Router() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/account" element={<AccountPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Route>
         </Routes>
       </BrowserRouter>

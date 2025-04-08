@@ -2,7 +2,8 @@ import React from "react";
 import Searchbar from "./Searchbar";
 import { Link, useNavigate } from "react-router";
 import supabase from "../supabase/supabase-client";
-import { useSession } from "../context/SessionContext";
+import { useSession } from "../context/session/SessionContext";
+import { FaUser } from "react-icons/fa";
 
 function Header() {
   const navigate = useNavigate();
@@ -36,11 +37,18 @@ function Header() {
 
       {/* Right: Account Dropdown & Login */}
       <div className="flex items-center bg-red-200 gap-4">
-        <ul className="flex">
+        <ul className="flex h-10 items-center">
           {session ? (
             <>
+              <li className="flex align-center justify-bet px-5 py-2 hover:bg-gray-100 ">
+                <FaUser className="relative top-1 right-2" />
+                <Link to="/profile">
+                  {" "}
+                  {session.user.user_metadata.username}
+                </Link>
+              </li>
               <li className="block px-4 py-2  hover:bg-gray-100">
-                <Link to="/account">Account</Link>
+                <Link to="/account"> Account Settings</Link>
               </li>
 
               <li>

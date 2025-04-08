@@ -1,11 +1,14 @@
 import Router from "./routing/Router";
-import SessionContextProvider from "./context/SessionProvider";
+import SessionProvider from "./context/session/SessionProvider";
+import FavoritesProvider from "./context/favorites/FavoritesProvider";
 function App() {
   return (
     <>
-      <SessionContextProvider>
-        <Router />
-      </SessionContextProvider>
+      <SessionProvider>
+        <FavoritesProvider>
+          <Router />
+        </FavoritesProvider>
+      </SessionProvider>
     </>
   );
 }
