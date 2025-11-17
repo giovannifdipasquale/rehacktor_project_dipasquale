@@ -13,7 +13,10 @@ export default function ToggleFavorite({ game }) {
     }
   };
   return (
-    <button onClick={() => ToggleFavorite()}>
+    <button
+      className="text-3xl text-accent cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-110"
+      onClick={() => ToggleFavorite()}
+    >
       {isFavorite() ? <FaHeart /> : <FaRegHeart />}
     </button>
   );

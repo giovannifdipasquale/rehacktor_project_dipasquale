@@ -86,9 +86,9 @@ function LoginPage() {
             required
             className="w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring focus:ring-blue-300"
           />
-          {/* {formErrors.email && (
+          {formErrors.email && (
             <small className="text-red-500 text-sm">{formErrors.email}</small>
-          )} */}
+          )}
         </div>
 
         {/* Password */}

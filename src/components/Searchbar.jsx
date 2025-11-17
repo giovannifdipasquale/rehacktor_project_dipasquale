@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-
+import { FaSearch } from "react-icons/fa";
 function Searchbar() {
   const navigate = useNavigate();
 
@@ -20,24 +20,26 @@ function Searchbar() {
   };
 
   return (
-    <form onSubmit={handleSearch} className="flex items-center gap-2">
+    <form onSubmit={handleSearch} className="relative flex items-center w-full">
       <input
         type="text"
         onChange={(e) => setSearch(e.target.value)}
         value={search}
-        aria-invalid={ariaInvalid}
-        placeholder={ariaInvalid ? "Please type something" : "Search..."}
-        className={`px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${
+        className={`flex bg-white px-2 py-2 border border-double w-full rounded-md focus:outline-none focus:ring-1 ${
           ariaInvalid
             ? "border-red-500 focus:ring-red-400"
-            : "border-gray-300 focus:ring-blue-400"
+            : "border-gray-900 focus:ring-gray-900"
         }`}
+        aria-invalid={ariaInvalid}
+        placeholder={
+          ariaInvalid ? "Please type something" : "Search for a game..."
+        }
       />
       <button
         type="submit"
-        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+        className="search-button bg-dark text-xl p-1 rounded absolute right-2"
       >
-        Search
+        <FaSearch></FaSearch>
       </button>
     </form>
   );

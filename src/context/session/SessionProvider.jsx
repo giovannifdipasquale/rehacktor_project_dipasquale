@@ -3,8 +3,16 @@ import { SessionContext } from "./SessionContext";
 import supabase from "../../supabase/supabase-client";
 function SessionContextProvider({ children }) {
   const [session, setSession] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Carica la sessione iniziale
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setLoading(false);
+    });
+
+    // Ascolta i cambiamenti di stato
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {

@@ -23,8 +23,8 @@ function Router() {
             <Route path="/search" element={<SearchPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/account" element={<AccountPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/account" element={<AccountPage />} /> // da proteggere
+            <Route path="/profile" element={<ProfilePage />} /> // da proteggere
           </Route>
         </Routes>
       </BrowserRouter>
