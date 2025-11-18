@@ -14,7 +14,7 @@ import GenresDropdown from "./GenresDropdown";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RiHomeFill } from "react-icons/ri";
-
+import logoWriting from "../assets/logo-writing.png";
 import {
   Disclosure,
   DisclosureButton,
@@ -50,7 +50,7 @@ function Header() {
         <Link to="/" className="logo text-2xl font-bold">
           <img
             className="logo"
-            src="/src/assets/logo-writing.png"
+            src={logoWriting}
             width="130"
             height="130"
             alt=""
@@ -208,7 +208,10 @@ function Header() {
                                 Account Settings
                               </Link>
                               <a
-                                onClick={() => { signOut(); close(); }}
+                                onClick={() => {
+                                  signOut();
+                                  close();
+                                }}
                                 href="#"
                                 className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
                               >

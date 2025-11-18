@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router"; 
+import logoWriting from "../assets/logo-writing.png";
+
 function Footer() {
   return (
     <footer className="theme-dark p-8">
@@ -11,7 +13,7 @@ function Footer() {
           <Link to="/" className="logo text-2xl font-bold">
             <img
               className="logo"
-              src="/src/assets/logo-writing.png" // Stesso logo dell'Header
+              src={logoWriting} // Stesso logo dell'Header
               width="130"
               height="130"
               alt="Game Cache Logo"
