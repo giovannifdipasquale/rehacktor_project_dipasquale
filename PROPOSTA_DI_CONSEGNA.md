@@ -1,11 +1,9 @@
 # Proposta di Consegna
 
 ## Descrizione
-
 Game Cache è un'applicazione web sviluppata in React che permette agli utenti di scoprire, cercare e salvare videogiochi. L'applicazione si interfaccia con l'API esterna RAWG.io per ottenere informazioni sui giochi (dettagli, generi, date di rilascio) e utilizza Supabase come Backend as a Service (BaaS) per gestire l'autenticazione degli utenti e il salvataggio dei loro giochi preferiti in un database
 
 ## API
-
 * API Esterna: L'applicazione utilizza l'API di RAWG.io (https://api.rawg.io/api/games) per recuperare i dati sui videogiochi. Le chiamate vengono gestite tramite il custom hook useFetchSolution, come visibile nelle pagine home, genre, game e search.
 
 * Backend as a Service (BaaS): Il progetto è integrato con Supabase per i servizi di backend. La configurazione del client Supabase si trova nel file src/supabase/supabase-client.js. Supabase viene utilizzato per:
@@ -14,15 +12,11 @@ Game Cache è un'applicazione web sviluppata in React che permette agli utenti d
     Database (per salvare i preferiti e i messaggi della chat)
     
 ## Stile
-
-* La soluzione di stile principale è Tailwind CSS, come configurato nel file vite.config.js e package.json.
-
-* Oltre a Tailwind, è stato utilizzato un file CSS personalizzato (src/index.css) per definire variabili globali (es. --color-bg, --color-accent) e classi custom (es. .text-texture, .register-button).
-
-* Il progetto integra anche librerie di componenti e animazioni come @headlessui/react (usata ad esempio nell'Header per il menu mobile) e framer-motion (usata per le animazioni del menu mobile).
+* La soluzione di stile principale è Tailwind CSS
+* Oltre a Tailwind, è stato utilizzato un file CSS personalizzato (src/index.css) per definire variabili globali (es. --color-bg, --color-accent) e classi custom (es. .text-texture, .register-button)
+* Il progetto integra anche librerie di componenti e animazioni come @headlessui/react (usata ad esempio nell'Header per il menu mobile) e framer-motion (usata per le animazioni del menu mobile)
 
 ## Pagine
-
 L'applicazione include diverse pagine gestite tramite react-router (configurato in src/routing/Router.jsx):
 1. Home Page (/): Mostra una lista degli ultimi giochi recuperati dall'API RAWG.
 2. Pagina Dettaglio Gioco (/games/:slug/:id): Mostra informazioni dettagliate su un singolo gioco, inclusa una chat in tempo reale.
@@ -34,9 +28,7 @@ L'applicazione include diverse pagine gestite tramite react-router (configurato 
 8. Pagina Ricerca (/search): Mostra i risultati di una ricerca effettuata tramite la Searchbar.
 
 ## User Interactions
-
-* Lista di interazioni che utenti autenticati e non posso fare nell'applicazione.
-
+* Lista di interazioni degli utenti autenticati vs non autenticati
 1. Utente non autenticato: Può navigare nella home page, visualizzare i giochi per genere, e vedere i dettagli di ogni singolo gioco.
 2. Utente non autenticato: Può cercare giochi specifici usando la barra di ricerca nell'header.
 3. Utente non autenticato: Può registrarsi e accedere alla piattaforma.
@@ -46,11 +38,9 @@ L'applicazione include diverse pagine gestite tramite react-router (configurato 
 7. Utente autenticato: Può partecipare alla chat in tempo reale (componente Chatbox) presente nella pagina di dettaglio di un gioco.
 
 ## Context
-
 L'applicazione utilizza il Context API di React per la gestione dello stato globale, come definito nel file src/App.jsx:
-
 1. SessionContext (src/context/session/SessionProvider.jsx): Mantiene e distribuisce lo stato della session dell'utente (recuperata da Supabase), rendendo disponibili i dati dell'utente (come ID ed email) a tutti i componenti che ne hanno bisogno.
-2. FavoritesContext (src/context/favorites/FavoritesProvider.jsx): Gestisce la lista dei favorites dell'utente. Espone le funzioni per ottenere i preferiti, aggiungere (addFavorites) e rimuovere (removeFavorites) giochi, sincronizzando lo stato con il database Supabase in tempo reale.
+2. FavoritesContext (src/context/favorites/FavoritesProvider.jsx): Gestisce la lista dei favorites dell'utente. Espone le funzioni per ottenere i preferiti, aggiungere (addFavorites) e rimuovere (removeFavorites) giochi
 
 ## Deployment
-
+https://rehacktor-project-dipasquale.vercel.app/

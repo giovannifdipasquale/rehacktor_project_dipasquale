@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="theme-dark p-8">
       {" "}
-      {/* 'theme-dark' imposta bg e colore testo da index.css */}
+
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
         {/* Sezione Logo */}
         <div className="mb-4 md:mb-0">
@@ -24,7 +24,7 @@ function Footer() {
         {/* Copyright e Links */}
         <div className="text-light">
           {" "}
-          {/* 'text-light' è il tuo colore crema */}
+         
           <p className="text-sm">
             &copy; {new Date().getFullYear()} Game Cache. Tutti i diritti
             riservati.
@@ -38,7 +38,7 @@ function Footer() {
               href="https://rawg.io/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent hover:underline" // 'text-accent' è il tuo arancione
+              className="text-accent hover:underline" 
             >
               RAWG.io
             </a>{" "}
